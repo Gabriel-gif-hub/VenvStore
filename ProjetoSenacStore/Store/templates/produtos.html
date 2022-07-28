@@ -19,46 +19,14 @@
         <th>Preço</th>
         <th>Estoque</th>
     </tr>
-    
+    {% for prod in produtos %}
     <tr>
-        
-        <td>
-            {% for prod in produtos %}
-        
-            {{produtos.nome}}
-
-            {% endfor %}
-        </td>
-
-        <td>
-            {% for categ in categorias %}
-
-            {{categ.departamentos}}
-
-            {% endfor %}
-        </td>
-
-
-        <td>
-            {% for pre in produtos %}
-
-            {{produtos.preco}}
-        
-            {% endfor %}
-        </td>
-
-        <td>
-            {% for est in produtos %}
-      
-            {{produtos.estoque}}
-        
-            {% endfor %}
-        </td>
-
-
+        <td>{{ prod.nome }}</td>
+        <td>{{ prod.categoria}}</td>
+        <td>R$ {{ prod.preco }}</td>
+        <td>{{ prod.estoque }}</td>
     </tr>
-
-
+    {% endfor %}
     </table>
 
 </body>
