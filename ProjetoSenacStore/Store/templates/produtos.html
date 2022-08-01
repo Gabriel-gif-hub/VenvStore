@@ -13,20 +13,21 @@
 
     <table border="1">
 
-    <tr>
-        <th>Nome</th>
-        <th>Categoria</th>
-        <th>Preço</th>
-        <th>Estoque</th>
-    </tr>
-    {% for prod in produtos %}
-    <tr>
-        <td>{{ prod.nome }}</td>
-        <td>{{ prod.categoria}}</td>
-        <td>R$ {{ prod.preco }}</td>
-        <td>{{ prod.estoque }}</td>
-    </tr>
-    {% endfor %}
+        <tr>
+            <th>Nome</th> <!-- Linha de título -->
+            <th>Categoria</th>
+            <th>Preço</th>
+            <th>Estoque</th>
+        </tr>
+        {% for prod in produtos %}
+        <tr> <!-- Coluna-->
+            <td>{{ prod.nome }}</td> <!-- Linha comum-->
+            <td>{{ prod.categoria}}</td>
+            <td>R$ {{ prod.preco }}</td>
+            <td>{{ prod.estoque }}</td>
+        </tr>
+        {% endfor %}
+
     </table>
 
 </body>
