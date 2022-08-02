@@ -12,7 +12,7 @@
     <ul>
         
         {% for depto in departamentos %}
-        <li>{{depto.nome}}</li>
+        <li><a href = "/categorias/{{depto.id}}">{{depto.nome}}</li></a></li>
         {% endfor %}
 
 </ul>

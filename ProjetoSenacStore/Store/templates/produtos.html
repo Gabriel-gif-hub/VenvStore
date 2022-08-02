@@ -10,14 +10,14 @@
 <body>
     
     <h1>Produtos</h1>
-
-    <table border="1">
+    <table border = "1">
 
         <tr>
             <th>Nome</th> <!-- Linha de título -->
             <th>Categoria</th>
             <th>Preço</th>
             <th>Estoque</th>
+            <th>Imagem</th>
         </tr>
         {% for prod in produtos %}
         <tr> <!-- Coluna-->
@@ -25,11 +25,16 @@
             <td>{{ prod.categoria}}</td>
             <td>R$ {{ prod.preco }}</td>
             <td>{{ prod.estoque }}</td>
+            <td><img src = "{{ prod.imagem.url }}" width= "80"  }}></td>
+            <td>{% if prod.lancamento == True  %}
+                Lançamento !!!
+
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
 
-    </table>
+</table>
 
 </body>
-
 </html>

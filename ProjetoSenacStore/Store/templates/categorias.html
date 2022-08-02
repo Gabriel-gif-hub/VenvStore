@@ -14,8 +14,10 @@
     <ul>
         {% for categ in categorias %}
 
-        <li> [{{categ.departamento}}] {{categ.nome}}</li>
+        <li><a href="/produtos/{{ categ.id }}">[{{categ.departamento}}]{{categ.nome}}</a></li>
 
+        {% empty %}
+        Nenhuma categoria encontrada !
         {% endfor %}
 
 </ul>
