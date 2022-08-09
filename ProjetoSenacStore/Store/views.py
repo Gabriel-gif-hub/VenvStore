@@ -1,8 +1,9 @@
+from multiprocessing import context
 from tkinter import E
 from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
-from Store.models import Departamento, Categoria, Produto, Detalhes
+from Store.models import Departamento, Categoria, Produto
 
 
 # Create your views here.
@@ -39,10 +40,11 @@ def produtos(request, id):
      }
     return render(request, 'produtos.html', context)
 
-def detalhes(resquest,id):
-    lista_detalhes = Detalhes.objects.filter(detalhe_id = id)
-    depto = Departamento.objects.get(id = id)
-    context = {'produtos': lista_detalhes,
-                'departamento': depto 
-     }
+def produto_detalhe(request,id):
+    produto = Produto.objects.get(id = id)
+    context = {
+        'produto':produto
+       
+    }
+
     return render(request, 'produto_detalhe.html', context)

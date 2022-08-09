@@ -1,41 +1,33 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Produto</title>
+    <title>{{produto.nome}}</title>
+    <link rel="stylesheet" type="text/css" href="caminho.css">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/estilos.css'%}">
 </head>
 
 <body>
 
-    <h1>Nome do produto</h1>
+    <h1>{{produto.nome}}</h1>
 
-    <h5>departamento>>>produto</h5>
+    <h5>{{produto.categoria}}</h5>
     
-    <img src = "{{prod.imagem.url}}" widht = "150" }}>
+    <img src = "{{produto.imagem.url}}" width= "250" >
 
-    <h2>{% if prod.lancamento == True  %}
+    <h2><strong>{% if prod.lancamento == True  %}
         Lançamento !!!
 
-        {% endif %}</h2>
+        {% endif %}</strong></h2>
 
-        <p>NUNCA MAIS QUEBRE OU DAFIQUE SEU CARREGADOR
+        <p>{{produto.descricao|linebreaks}}</p>
 
-            Sempre quebrando ou danificando a ponta do seu carregador?
-            
-            Nosso Carregador magnético 540° - Essager facilita a recarga de seu smartphone e garante que seu carregador não danifique mais, devido a sua conexão cabo-plug magnética, trazendo assim facilidade e eficiência, evitando com que a ponta quebre ou danifique
-            
-            ✔️ Conector e cabo magnético
-            ✔️ Tempo de recarga menor que os demais carregadores
-            ✔️ Disponível para todos os tipos de smartphones
-            
-             ❗ VERIFICAR O MODELO NO ATO DA COMPRA (TIPO MICRO, TIPO C, TIPO IOS)
-             ❗ TRASNFERÊNCIA DE DADOS NÃO É SUPORTADA</p>
+             <h3>Preço: R$ {{produto.preco}}</h3>
 
-             <h3>R$ {{ prod.preco }}</h3>
-
-             <h3>{{ prod.estoque }}</h3>
+             <h3>Estoque: {{produto.estoque}}</h3>
 
 </body>
 

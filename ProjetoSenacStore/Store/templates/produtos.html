@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -5,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'css/estilos.css'%}">
 </head>
 
 <body>
@@ -21,7 +23,11 @@
         </tr>
         {% for prod in produtos %}
         <tr> <!-- Coluna-->
-            <td>{{ prod.nome }}</td> <!-- Linha comum-->
+            <td><a href="/produto_detalhe/{{prod.id}}">
+
+            {{ prod.nome }}
+            </a>
+            </td> <!-- Linha comum-->
             <td>{{ prod.categoria}}</td>
             <td>R$ {{ prod.preco }}</td>
             <td>{{ prod.estoque }}</td>
