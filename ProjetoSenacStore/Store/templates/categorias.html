@@ -1,4 +1,4 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -6,24 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
-    <link rel="stylesheet" type="text/css" href="{%static 'css/estilos.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/estilos.css' %}">
 </head>
-
 <body>
     
-    <h1>Categorias do Departamento {{departamento.nome}}</h1>
+    {% include 'includes/topo.html'  %}
 
+    <h1>Categorias do Departamento {{ departamento.nome }}</h1>
     <ul>
         {% for categ in categorias %}
-
-        <li><a href="/produtos/{{ categ.id }}">[{{categ.departamento}}]{{categ.nome}}</a></li>
-
+        <li><a href="/produtos/{{ categ.id }}">{{ categ.nome }}</a></li>
         {% empty %}
-        Nenhuma categoria encontrada !
+        Nenhuma categoria encontrada!
         {% endfor %}
-
-</ul>
-
+    </ul>
+    
 </body>
-
 </html>

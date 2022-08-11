@@ -4,12 +4,13 @@ from urllib import request
 from django.shortcuts import render
 from django.http import HttpResponse
 from Store.models import Departamento, Categoria, Produto
+from django.core.mail import send_mail
 
 
 # Create your views here.
 
 def index(request):
-    meu_nome = 'Neymar Jr'
+    meu_nome = 'Gabriel'
     gênero = 'm'
     context = {'nome': meu_nome, 'artigo': 'o' if gênero == 'm' else 'a'}
     return render(request, 'index.html', context)
@@ -48,3 +49,25 @@ def produto_detalhe(request,id):
     }
 
     return render(request, 'produto_detalhe.html', context)
+
+def institucional(request):
+    return render(request, 'institucional.html')
+
+def contato(request):
+    return render(request, 'contato.html')
+
+def enviar_email(request):
+    nome = request.POST['nome']
+    telefone = request.POST['telefone']
+    assunto = request.POST['assunto']
+    mensagem = request.POST['mensagem']
+    remetente = request.POST['email']
+    destinatario = ['gabrieloliveira2505@gmail.com']
+    corpo = f"Nome: {nome} \nTelefone: {telefone} \nMensagem: {mensagem}"
+    try:
+        send_mail(assunto, corpo, remetente, destinatario)
+        context = {'msg': 'E-mail enviado com sucesso!'}
+    except:
+        context = {'msg': 'Erro ao enviar o e-mail!'}
+
+    return render(request, 'contato.html',context)
