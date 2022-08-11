@@ -15,3 +15,17 @@ urlpatterns = [
     path('contato/enviar/', views.enviar_email, name='enviar_contato')
 
 ]
+
+
+# Deploy com Heroku
+#Url: https://www.heroku.com/
+#Tutorial: https://www.treinaweb.com.br/blog/deploy-de-uma-aplicacao-django-no-heroku
+
+#priorizar este :
+#Deploy com PythonAnyWhere
+#Url: https://www.pythonanywhere.com/
+#Tutorial: https://acervolima.com/como-implantar-o-projeto-django-no-pythonanywhere/
+#Linbk do projeto
+#http://github.com/profronicosta/ProjetoSenacStore
+
+#ronivaldo.pcosta@sp.senac.br
